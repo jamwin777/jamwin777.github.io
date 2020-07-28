@@ -1,0 +1,24 @@
+*{
+    margin: 0;padding: 0;
+}
+.wrap{
+
+}
+.container{
+    margin: 0 auto;
+    width: 1280px;
+    height: 2105px;
+    background: #aaa;
+    position: relative;
+}
+
+#container1{
+    position: absolute;
+    width: 900px;
+    top: 500px;
+    left: -119px;
+}
+#sliders1{
+    position: absolute;
+    /* display: none; */
+}
