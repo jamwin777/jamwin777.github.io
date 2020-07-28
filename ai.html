@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+		integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+</head>
+
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="jumbotron">
+				<h1>人类的本质</h1>
+				<input type="text" placeholder="输入对话" id="text" class="col-lg-12"
+					style="display: block;height: 50px;font-size: 20px;margin: 30px 0" />
+				<input type="button" value="提交" id="btn" class="btn btn-danger" onclick="say()" />
+			</div>
+
+		</div>
+		<div class="panel panel-default row">
+			<div class="panel-body">
+				对话内容:
+			</div>
+		</div>
+
+	</div>
+
+
+	<script>
+		var txt = document.getElementById('text')
+		var btn = document.getElementById('btn')
+		var msgbox = document.querySelector('.panel-body')
+		btn.addEventListener('click', () => {
+
+
+			let myself = document.createElement('p')
+			myself.innerHTML = '>>我说：' + this.txt.value
+			msgbox.appendChild(myself)
+
+
+			let child = document.createElement('p')
+			if (Math.random() > 0.75) {
+				child.innerHTML = this.txt.value.replace(/你/g, '我').replace(/吗/g, '').replace(/\?/g, '！').replace(
+					/？/g, '！')
+			} else if (Math.random() > 0.5) {
+				child.innerHTML = '就这？'
+			} else {
+				child.innerHTML = '你急了你急了！'
+				msgbox.appendChild(child)
+			}
+			msgbox.appendChild(child)
+			this.txt.value = ''
+		})
+
+		txt.addEventListener('keydown', (e) => {
+			if (e.keyCode == 13) {
+				this.btn.click()
+			}
+		})
+	</script>
+	<script type="text/javascript" charset="utf-8"  src="https://files.cnblogs.com/files/liuzhou1/L2Dwidget.0.min.js"></script>
+	<script type="text/javascript" charset="utf-8"  src="https://files.cnblogs.com/files/liuzhou1/L2Dwidget.min.js"></script>
+	<script type="text/javascript">
+		L2Dwidget.init({"display": {
+			"superSample": 2,
+			"width": 200,
+			"height": 400,
+				 "position": "right",
+					 "hOffset": 0,
+			"vOffset": 0
+			  }
+		 });
+	</script>
+</body>
+
+</html>
